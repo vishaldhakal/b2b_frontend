@@ -29,7 +29,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="bg-white">
+    <nav className="bg-white shadow-2xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
@@ -46,7 +46,7 @@ const Navbar = () => {
                 className={`px-3 py-2 rounded-md text-sm font-medium ${
                   router.pathname === item.href
                     ? "bg-gray-900 text-white"
-                    : "text-gray-700 hover:bg-gray-700 hover:text-white"
+                    : "text-black hover:text-blue-900"
                 }`}
               >
                 {item.name}
@@ -54,29 +54,31 @@ const Navbar = () => {
             ))}
           </div>
 
-          <div className="hidden sm:ml-6 sm:flex sm:items-center">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost">
-                  {user && user.username}{" "}
-                  <ChevronDown className="ml-2 h-4 w-4" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="shadow-2xl bg-white border-gray-100 rouned-lg">
-                <DropdownMenuItem>
-                  <Link href="/profile">Profile</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Link href="/settings">Settings</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Button variant="ghost" onClick={logout} className="p-0">
-                    Logout
+          {user && (
+            <div className="hidden sm:ml-6 sm:flex sm:items-center">
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost">
+                    {user && user.username}{" "}
+                    <ChevronDown className="ml-2 h-4 w-4" />
                   </Button>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </div>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="shadow-2xl bg-white border-gray-100 rouned-lg">
+                  <DropdownMenuItem>
+                    <Link href="/profile">Profile</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link href="/settings">Settings</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Button variant="ghost" onClick={logout} className="p-0">
+                      Logout
+                    </Button>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
+          )}
 
           <div className="flex items-center sm:hidden">
             <Button variant="ghost" onClick={() => setIsOpen(!isOpen)}>

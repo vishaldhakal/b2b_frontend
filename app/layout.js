@@ -1,6 +1,8 @@
+import Navbar from "@/components/Navbar";
 import "./globals.css";
 import { AuthProvider } from "./lib/auth";
 import { Bricolage_Grotesque } from "next/font/google";
+import Footer from "@/components/Footer";
 
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -15,7 +17,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${bricolage.className}`}>
-        <AuthProvider>{children}</AuthProvider>
+        <AuthProvider>
+          <Navbar />
+          <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-3">
+            {children}
+          </main>
+          <Footer />
+        </AuthProvider>
       </body>
     </html>
   );
