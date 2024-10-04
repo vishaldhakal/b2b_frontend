@@ -22,14 +22,13 @@ const Navbar = () => {
     { name: "Home", href: "/" },
     { name: "About", href: "/" },
     { name: "Events", href: "/events" },
-    { name: "Wish and Offers", href: "/wish-and-offers" },
+    { name: "Wish and Offers", href: "/wish-and-offer" },
     { name: "BDS Services", href: "/bds-services" },
     { name: "Business Registration", href: "/business-registration" },
-    { name: "JobBriz", href: "/jobbriz" },
   ];
 
   return (
-    <nav className="bg-white shadow-2xl">
+    <nav className="bg-white shadow-2xl sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">

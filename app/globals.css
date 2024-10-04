@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@keyframes smooth-scroll {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.smooth-scroll {
+  animation: smooth-scroll linear infinite;
+}
+
+.smooth-scroll:hover {
+  animation-play-state: paused;
+}
